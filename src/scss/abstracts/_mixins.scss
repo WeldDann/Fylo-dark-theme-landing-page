@@ -1,0 +1,40 @@
+@use 'sass:map';
+@use 'variables' as *;
+
+// Breakpoint
+@mixin breakpoint($range, $point, $secondPoint: null) {
+  @if $range == 'min' {
+    @media only screen and (min-width: map.get($breakpoints, $point)) {
+      @content;
+    }
+  } @else if $range == 'max' {
+    @media only screen and (max-width: map.get($breakpoints, $point) - 1) {
+      @content;
+    }
+  } @else if $range == 'between' {
+    @media only screen and (min-width: map.get($breakpoints, $point)) and (max-width: map.get($breakpoints, $secondPoint) - 1) {
+      @content;
+    }
+  }
+}
+
+// Centered position
+@mixin centered($direction: 'both', $position: 'absolute') {
+  @if $direction == 'horizontal' {
+    left: 50%;
+    transform: translateX(-50%);
+  } @else if $direction == 'vertical' {
+    top: 50%;
+    transform: translateY(-50%);
+  } @else if $direction == 'both' {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @if $position == 'absolute' {
+    position: absolute;
+  } @else if $position == 'relative' {
+    position: relative;
+  }
+}

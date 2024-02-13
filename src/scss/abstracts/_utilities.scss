@@ -1,0 +1,37 @@
+@use 'sass:map';
+@use 'variables' as *;
+
+// Colors utilities
+@each $group, $items in $colors {
+  @if $items {
+    @each $colorName, $colorValue in $items {
+      .text-#{$group}-#{$colorName} {
+        color: $colorValue;
+      }
+
+      .bg-#{$group}-#{$colorName} {
+        background-color: $colorValue;
+      }
+    }
+  }
+}
+
+
+// Fonts utilities
+@each $font, $fontValue in $fontFamilies {
+  .ff-#{$font} {
+    font-family: $fontValue;
+  }
+}
+
+@each $element, $sizeValue in $fontSizes {
+  .fs-#{$element} {
+    font-size: $sizeValue;
+  }
+}
+
+@each $weight, $weightValue in $fontWeights {
+  .fw-#{$weight} {
+    font-weight: $weightValue;
+  }
+}

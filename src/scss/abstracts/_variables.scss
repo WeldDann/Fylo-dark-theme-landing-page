@@ -1,0 +1,77 @@
+// Colors
+$colors: (
+  primary: (
+    'darkblue1': hsl(217, 28%, 15%), // Intro & email form bg
+    'darkblue2': hsl(218, 28%, 13%), // Main bg
+    'darkblue3': hsl(216, 53%, 9%), // Footer bg
+    'darkblue4': hsl(219, 30%, 18%) // Testimonials bg
+  ),
+  secondary: null,
+  tertiary: null,
+  accent: (
+    'lightcyan': hsl(176, 68%, 64%), // Gradient from
+    'cyan': hsl(198, 60%, 50%), // Gradient to
+    'lightred': hsl(0, 100%, 63%) // Error
+  ),
+  neutral: (
+    'white': hsl(0, 0%, 100%)
+  )
+);
+
+@each $group, $items in $colors {
+  @if $items {
+    @each $colorName, $colorValue in $items {
+      :root {
+        --clr-#{$group}-#{$colorName}: #{$colorValue};
+      }
+    }
+  }
+}
+
+
+
+// Fonts
+$fontFamilies: (
+  'Raleway': 'Raleway',
+  'Open Sans': 'Open Sans'
+);
+
+@each $font, $fontValue in $fontFamilies {
+  :root {
+    --ff-#{$font}: #{$fontValue};
+  }
+};
+
+$fontSizes: (
+  title: 3rem,
+  h1: 2rem,
+  h2: 1.5rem,
+  h3: 1.17rem,
+  paragraph: 0.875rem,
+);
+
+@each $element, $sizeValue in $fontSizes {
+  :root {
+    --fs-#{$element}: #{$sizeValue};
+  }
+};
+
+$fontWeights: (
+  400: 400,
+  700: 700
+);
+
+@each $weight, $weightValue in $fontWeights {
+  :root {
+    --fw-#{$weight}: #{$weightValue};
+  }
+};
+
+
+// Breakpoints
+$breakpoints: (
+  'small': 576px,
+  'medium': 768px,
+  'large': 992px,
+  'xlarge': 1200px
+);
