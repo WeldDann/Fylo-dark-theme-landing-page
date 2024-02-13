@@ -32,8 +32,8 @@ $colors: (
 
 // Fonts
 $fontFamilies: (
-  'Raleway': 'Raleway',
-  'Open Sans': 'Open Sans'
+  'raleway': 'Raleway',
+  'opensans': 'Open Sans'
 );
 
 @each $font, $fontValue in $fontFamilies {
@@ -41,6 +41,7 @@ $fontFamilies: (
     --ff-#{$font}: #{$fontValue};
   }
 };
+
 
 $fontSizes: (
   title: 3rem,
@@ -50,11 +51,13 @@ $fontSizes: (
   paragraph: 0.875rem,
 );
 
+
 @each $element, $sizeValue in $fontSizes {
   :root {
     --fs-#{$element}: #{$sizeValue};
   }
 };
+
 
 $fontWeights: (
   400: 400,

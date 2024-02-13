@@ -31,11 +31,11 @@
 }
 
 :root {
-  --ff-Raleway: Raleway;
+  --ff-raleway: Raleway;
 }
 
 :root {
-  --ff-Open Sans: Open Sans;
+  --ff-opensans: Open Sans;
 }
 
 :root {
@@ -130,11 +130,11 @@
   background-color: white;
 }
 
-.ff-Raleway {
+.ff-raleway {
   font-family: "Raleway";
 }
 
-.ff-Open Sans {
+.ff-opensans {
   font-family: "Open Sans";
 }
 
