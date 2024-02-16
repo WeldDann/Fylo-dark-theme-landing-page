@@ -338,7 +338,6 @@ h3 {
 }
 
 .header-container {
-  --min-gap: 0rem;
   --min-padding: 1.5rem;
   --max-width: 1120px;
   width: calc(100vw - (var(--min-padding) * 2));
@@ -348,7 +347,6 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  column-gap: var(--min-gap);
 }
 
 .header-logo {
@@ -422,7 +420,7 @@ h3 {
   text-align: center;
 }
 .service-article__img {
-  width: 90px;
+  max-width: 90px;
   aspect-ratio: 1/1;
   object-fit: contain;
 }
@@ -534,11 +532,11 @@ h3 {
 }
 
 .signup-container {
-  --min-padding: 1.5rem;
+  --min-margin: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
   position: absolute;
-  width: calc(100% - (var(--min-padding) * 2));
+  width: calc(100% - (var(--min-margin) * 2));
   max-width: 750px;
   padding: 2.5rem;
   bottom: 0;
@@ -684,7 +682,6 @@ h3 {
 .footer-nav__list {
   display: grid;
   align-content: start;
-  justify-items: start;
   row-gap: var(--line-gap);
 }
 .footer-nav__list__item__link {
@@ -698,6 +695,7 @@ h3 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
 .footer-socials-list {
   display: flex;
   justify-content: center;

@@ -1,14 +1,11 @@
 @use '../abstracts' as *;
 
 .header-container {
-  --min-gap: 0rem;
-
   @include site-padding;
   padding-block: 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  column-gap: var(--min-gap);
 }
 
 .header-logo {

@@ -23,7 +23,7 @@
   text-align: center;
 
   &__img {
-    width: 90px;
+    max-width: 90px;
     aspect-ratio: 1 / 1;
     object-fit: contain;
   }

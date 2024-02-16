@@ -2,10 +2,10 @@
 @use '../components/' as *;
 
 .signup-container {
-  --min-padding: 1.5rem;
+  --min-margin: 1.5rem;
 
   @include centered('horizontal', 'absolute');
-  width: calc(100% - (var(--min-padding) * 2));
+  width: calc(100% - (var(--min-margin) * 2));
   max-width: 750px;
   padding: 2.5rem;
   bottom: 0;
@@ -25,6 +25,7 @@
 
   display: flex;
   gap: 2rem;
+  
 
   &__email-container {
     flex: 1;
