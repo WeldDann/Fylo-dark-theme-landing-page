@@ -1,1 +1,129 @@
 @use '../abstracts' as *;
+
+.site-footer {
+  --content-margin-top: 8rem;
+
+  padding-top: var(--content-margin-top);
+
+  @include breakpoint('max', 'medium') {
+    --content-margin-top: 10rem;
+  }
+}
+
+.footer-container {
+  --line-gap: 1.5rem;
+  --medium-gap: 4rem;
+  --big-gap: 6rem;
+
+  @include site-padding;
+  padding-block: 6rem;
+}
+
+.footer-logo {
+  margin-bottom: var(--medium-gap);  
+}
+
+.footer-grid-container {
+  display: grid;
+  row-gap: var(--medium-gap);
+  column-gap: var(--big-gap);
+
+
+  @include breakpoint('min', 'large') {
+    grid-template-columns: repeat(3, auto);
+    justify-content: space-between;
+  }
+}
+
+.footer-details-container {
+  display: grid;
+  row-gap: var(--line-gap);
+  column-gap: var(--medium-gap);
+  
+
+  @include breakpoint('min', 'small') {
+    grid-template: auto 1fr / repeat(2, auto);
+    
+    .footer-location     { grid-area: 1 / 1 / span 2 / 2 }
+    .footer-phone-number { grid-area: 1 / 2 / 2 / -1     }
+    .footer-email        { grid-area: 2 / 2 / 3 / -1     }
+  }
+  
+  @include breakpoint('between', 'small', 'large') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.footer-location,
+.footer-phone-number,
+.footer-email {
+  display: flex;
+  column-gap: var(--line-gap);
+
+
+  &__icon {
+    flex-basis: 15px;
+    align-self: start;
+    object-fit: contain;
+  }
+}
+
+.footer-location__text {
+  max-width: 300px;
+}
+
+.footer-nav {
+  display: grid;
+  gap: var(--medium-gap);
+
+
+  &__list {
+    display: grid;
+    align-content: start;
+    justify-items: start;
+    row-gap: var(--line-gap);
+
+
+    &__item__link {
+      text-decoration: none;
+
+      &:is(:hover, :focus) {
+        color: var(--clr-neutral-white);
+      }
+    }
+  }
+
+
+  @include breakpoint('min', 'small') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @include breakpoint('between', 'small', 'large') {
+    // justify-content: start;
+  }
+}
+
+.footer-socials-list {
+  display: flex;
+  justify-content: center;
+  column-gap: 0.25rem;
+
+
+  &__item__link {
+    display: block;
+    padding: 0.5rem;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    
+    &__icon {
+      width: 16px;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      fill: currentColor;
+    }
+
+    &:is(:hover, :focus) {
+      color: var(--clr-accent-lightcyan);
+    }
+  }
+}

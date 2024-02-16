@@ -1,1 +1,48 @@
 @use '../abstracts' as *;
+
+.section-container--details {
+  --grid-gap: 3rem;
+
+  display: grid;
+  gap: var(--grid-gap);
+  align-items: center;
+
+
+  @include breakpoint('min', 'medium') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.details-illustration {
+  justify-self: center;
+  width: 100%;  
+  max-width: 600px;  
+}
+
+.details-content-container {
+  --line-gap: 1rem;
+
+  display: grid;
+  row-gap: var(--line-gap);
+}
+
+.seehow-btn {
+  justify-self: start;
+  padding-bottom: 0.25rem;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+
+  .seehow-btn__arrow-icon {
+    display: inline;
+    vertical-align: sub;
+  }
+
+  &:is(:hover, :focus) {
+    color: var(--clr-neutral-white);
+    border-bottom: 1px solid var(--clr-neutral-white);
+
+    .seehow-btn__arrow-icon use {
+      fill: var(--clr-neutral-white);
+    }
+  }
+}

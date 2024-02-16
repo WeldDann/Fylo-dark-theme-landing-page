@@ -8,11 +8,11 @@
       @content;
     }
   } @else if $range == 'max' {
-    @media only screen and (max-width: map.get($breakpoints, $point) - 1) {
+    @media only screen and (max-width: map.get($breakpoints, $point) - 1px) {
       @content;
     }
   } @else if $range == 'between' {
-    @media only screen and (min-width: map.get($breakpoints, $point)) and (max-width: map.get($breakpoints, $secondPoint) - 1) {
+    @media only screen and (min-width: map.get($breakpoints, $point)) and (max-width: map.get($breakpoints, $secondPoint) - 1px) {
       @content;
     }
   }
@@ -37,4 +37,13 @@
   } @else if $position == 'relative' {
     position: relative;
   }
+}
+
+@mixin site-padding {
+  --min-padding: 1.5rem;
+  --max-width: 1120px;
+
+  width: calc(100vw - (var(--min-padding) * 2));
+  max-width: var(--max-width);
+  margin-inline: auto;
 }

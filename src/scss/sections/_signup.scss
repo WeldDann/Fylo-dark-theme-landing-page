@@ -1,1 +1,68 @@
 @use '../abstracts' as *;
+@use '../components/' as *;
+
+.signup-container {
+  --min-padding: 1.5rem;
+
+  @include centered('horizontal', 'absolute');
+  width: calc(100% - (var(--min-padding) * 2));
+  max-width: 750px;
+  padding: 2.5rem;
+  bottom: 0;
+  border-radius: 0.5rem;
+  box-shadow: 0.5rem 0.5rem 2rem -1rem black;
+  text-align: center;
+  transform: translate(-50%, 50%);
+}
+
+.signup-heading { margin-bottom: 1.5rem }
+.signup-desc    { margin-bottom: 2.5rem }
+
+.signup-form {
+  --input-border-radius: 1.5rem;
+  --input-padding-block: 1rem;
+  --input-padding-inline: 2rem;
+
+  display: flex;
+  gap: 2rem;
+
+  &__email-container {
+    flex: 1;
+    position: relative;
+  }
+
+  &__email-field {
+    width: 100%;
+    padding-block: var(--input-padding-block);
+    padding-inline: var(--input-padding-inline);
+    border: none;
+    border-radius: var(--input-border-radius);
+
+    &[aria-invalid="true"] ~ .signup-form__email-error-msg {
+      visibility: visible;
+    }
+  }
+
+  &__email-error-msg {
+    position: absolute;
+    bottom: -1.4rem;
+    left: var(--input-padding-inline);
+    display: block;
+    visibility: hidden;
+  }
+
+  &__submit-btn {
+    @extend .btn-primary;
+
+    padding-inline: var(--input-padding-inline);
+  }
+
+  @include breakpoint('max', 'medium') {
+    flex-wrap: wrap;
+
+    & > * {
+      flex-basis: 100%;
+    }
+  }
+}
+

@@ -1,1 +1,75 @@
 @use '../abstracts' as *;
+
+.testimonials-section {
+  margin-bottom: 0;
+}
+.section-container--testimonials {
+  --articles-gap: 3rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--articles-gap);
+}
+
+.testimonial-article {
+  --shadow-clr: hsl(215, 26%, 14%);
+
+  flex-basis: 300px;
+  flex-grow: 1;
+  max-width: 350px;
+  padding: 2rem;
+  padding-top: 3rem;
+  border-radius: 0.25px;
+  box-shadow: 0.5rem 0.5rem 0.25rem 0.25rem var(--shadow-clr);
+  z-index: 99;
+
+
+  &__profile {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template: repeat(2, auto) / auto 1fr;
+    align-items: center;
+    column-gap: 0.5rem;
+
+
+    &__photo {
+      grid-area: 1 / 1 / span 2 / 2;
+      width: 25px;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      object-fit: contain;
+    }
+
+    &__name     { font-size: var(--fs-xsmall)  }
+    &__position { font-size: var(--fs-subscript) }
+  }
+
+  // Quotation mark icon
+  // Couldn't find a better way to hide the icon behind its parent other than
+  // removing the parent's padding and transferring it to the children
+  // and set the icon's z-index lower than the children
+  &--satish {
+    padding: 0;
+    position: relative;
+  
+    &::before {
+      content: url('../assets/images/bg-quotes.png');
+      position: absolute;
+      display: block; 
+      top: -2rem;
+      left: -0.5rem;
+      z-index: -1;
+    }
+
+    .testimonial-article__statement {
+      padding-top: 3rem;
+      padding-inline: 2rem;
+    }
+
+    .testimonial-article__profile {
+      padding-bottom: 2rem;
+      padding-inline: 2rem;
+    }
+  }
+}

@@ -14,7 +14,8 @@ $colors: (
     'lightred': hsl(0, 100%, 63%) // Error
   ),
   neutral: (
-    'white': hsl(0, 0%, 100%)
+    'white': hsl(0, 0%, 100%),
+    'lightgrey': hsl(0, 0%, 83%)
   )
 );
 
@@ -27,7 +28,6 @@ $colors: (
     }
   }
 }
-
 
 
 // Fonts
@@ -49,6 +49,9 @@ $fontSizes: (
   h2: 1.5rem,
   h3: 1.17rem,
   paragraph: 0.875rem,
+  small: 0.75rem,
+  xsmall: 0.625rem,
+  subscript: 0.5625rem
 );
 
 
@@ -78,3 +81,9 @@ $breakpoints: (
   'large': 992px,
   'xlarge': 1200px
 );
+
+@each $breakpoint, $breakpointValue in $breakpoints {
+  :root {
+    --breakpoint-#{$breakpoint}: #{$breakpointValue};
+  }
+};

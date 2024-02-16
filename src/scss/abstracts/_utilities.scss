@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use 'variables' as *;
+@use 'mixins' as *;
 
 // Colors utilities
 @each $group, $items in $colors {
@@ -34,4 +35,16 @@
   .fw-#{$weight} {
     font-weight: $weightValue;
   }
+}
+
+
+// Section containers
+.section-container {
+  @include site-padding;
+}
+
+.section {
+  --sections-gap: 10rem;
+  
+  margin-bottom: var(--sections-gap);
 }
